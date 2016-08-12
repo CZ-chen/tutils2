@@ -1,6 +1,6 @@
-package cn.ionm.tutils2.codec;
+package tech.nodex.tutils2.codec;
 
-import cn.ionm.tutils2.lang.Strings;
+import tech.nodex.tutils2.lang.Strings;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

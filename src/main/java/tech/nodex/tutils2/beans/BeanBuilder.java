@@ -1,4 +1,4 @@
-package cn.ionm.tutils2.beans;
+package tech.nodex.tutils2.beans;
 
 import net.sf.morph.Morph;
 

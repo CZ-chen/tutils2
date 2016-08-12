@@ -1,6 +1,6 @@
-package cn.ionm;
+package tech.nodex;
 
-import cn.ionm.tutils2.xml.XmlUtils;
+import tech.nodex.tutils2.xml.XmlUtils;
 import org.junit.Test;
 
 import java.util.Map;

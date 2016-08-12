@@ -1,4 +1,4 @@
-package cn.ionm.tutils2.costlog;
+package tech.nodex.tutils2.costlog;
 
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;

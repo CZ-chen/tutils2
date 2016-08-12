@@ -1,6 +1,6 @@
-package cn.ionm.tutils2.http;
+package tech.nodex.tutils2.http;
 
-import cn.ionm.tutils2.lang.Strings;
+import tech.nodex.tutils2.lang.Strings;
 import net.sf.morph.Morph;
 import okhttp3.*;
 import org.apache.commons.io.IOUtils;

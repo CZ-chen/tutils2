@@ -1,6 +1,6 @@
-package cn.ionm.tutils2.costlog;
+package tech.nodex.tutils2.costlog;
 
-import cn.ionm.tutils2.jackson.JsonUtils;
+import tech.nodex.tutils2.jackson.JsonUtils;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import org.slf4j.Logger;

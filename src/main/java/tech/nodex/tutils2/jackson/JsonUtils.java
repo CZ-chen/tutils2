@@ -1,4 +1,4 @@
-package cn.ionm.tutils2.jackson;
+package tech.nodex.tutils2.jackson;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;

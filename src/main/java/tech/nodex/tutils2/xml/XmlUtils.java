@@ -1,16 +1,17 @@
-package cn.ionm.tutils2.xml;
+package tech.nodex.tutils2.xml;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+import tech.nodex.tutils2.jackson.JsonUtils;
 
 import java.io.IOException;
 import java.io.StringWriter;
 import java.util.Map;
 
-import static cn.ionm.tutils2.jackson.JsonUtils.fromJson;
-import static cn.ionm.tutils2.jackson.JsonUtils.toJson;
+import static tech.nodex.tutils2.jackson.JsonUtils.fromJson;
+import static tech.nodex.tutils2.jackson.JsonUtils.toJson;
 
 public class XmlUtils {
 	private static final XmlMapper DEFAULT_MAPPER = new XmlMapper();
@@ -20,7 +21,7 @@ public class XmlUtils {
 	}
 	
 	public static String toXml(Object object){
-		return toJson(object,DEFAULT_MAPPER);
+		return JsonUtils.toJson(object,DEFAULT_MAPPER);
 	}
 	
 	public static String toXml(Object object,ObjectMapper mapper){
@@ -66,7 +67,7 @@ public class XmlUtils {
 	}
 	
 	public static <T>T fromXml(byte[] xml,Class<T> type){
-		return fromJson(xml,type,DEFAULT_MAPPER);
+		return JsonUtils.fromJson(xml,type,DEFAULT_MAPPER);
 	}
 	
 	public static <T>T fromXml(byte[] xml,Class<T> type,XmlMapper mapper){

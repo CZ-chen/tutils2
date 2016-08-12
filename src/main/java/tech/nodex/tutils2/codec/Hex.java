@@ -1,4 +1,4 @@
-package cn.ionm.tutils2.codec;
+package tech.nodex.tutils2.codec;
 
 import java.util.Formatter;
 

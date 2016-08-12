@@ -1,4 +1,4 @@
-package cn.ionm.tutils2.http;
+package tech.nodex.tutils2.http;
 
 import okhttp3.ConnectionPool;
 import okhttp3.OkHttpClient;

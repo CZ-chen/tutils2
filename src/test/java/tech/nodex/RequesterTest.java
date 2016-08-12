@@ -1,8 +1,8 @@
-package cn.ionm;
+package tech.nodex;
 
-import cn.ionm.tutils2.http.HttpResult;
-import cn.ionm.tutils2.http.Requester;
-import cn.ionm.tutils2.lang.Strings;
+import tech.nodex.tutils2.http.HttpResult;
+import tech.nodex.tutils2.http.Requester;
+import tech.nodex.tutils2.lang.Strings;
 import org.junit.Test;
 
 /**

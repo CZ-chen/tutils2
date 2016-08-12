@@ -1,4 +1,4 @@
-package cn.ionm.tutils2.lang;
+package tech.nodex.tutils2.lang;
 
 import java.nio.charset.Charset;
 
