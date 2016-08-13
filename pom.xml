@@ -2,7 +2,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>cn.ionm</groupId>
+    <groupId>tech.nodex</groupId>
     <artifactId>tutils2</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
@@ -61,16 +61,16 @@
 
     <distributionManagement>
         <snapshotRepository>
-            <id>snapshots</id>
+            <id>oss</id>
             <uniqueVersion>false</uniqueVersion>
-            <url>http://nexus.rc.dataengine.com/nexus/content/repositories/snapshots/</url>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
             <layout>default</layout>
         </snapshotRepository>
         <repository>
-            <id>releases</id>
+            <id>oss</id>
             <uniqueVersion>true</uniqueVersion>
             <layout>default</layout>
-            <url>http://nexus.rc.dataengine.com/nexus/content/repositories/releases/</url>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
         </repository>
     </distributionManagement>
 </project>

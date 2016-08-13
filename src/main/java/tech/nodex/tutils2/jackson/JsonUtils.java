@@ -25,7 +25,11 @@ public class JsonUtils {
 	}
 	
 	public static <T>T fromJson(String json,Class<T> type){
-		return fromJson(json,type);
+		try {
+			return DEFAULT_MAPPER.readValue(json, type);
+		} catch (IOException e) {
+			throw new IllegalArgumentException(e);
+		}
 	}
 	
 	public static <T>T fromJson(String json,TypeReference<T> typeReference){
