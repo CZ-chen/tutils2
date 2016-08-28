@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -47,7 +48,12 @@ public class Requester {
 	private OkHttpClient udfHttpClient;
 	private MultipartBody.Builder multipartBodyBuilder;
 
-    public HttpResult execute(){
+	/**
+	 * 发起请求并自动下载响应内容
+	 *
+	 * @return the http result
+	 */
+	public HttpResult execute(){
 		HttpResult result = new HttpResult();
     	result.setCode(-1);
 		Response resp = null;
@@ -69,6 +75,28 @@ public class Requester {
 		}
     	return result;
     }
+
+	/**
+	 * 发起请求并返回下载流
+	 *	注意：下载流在使用后应保证关闭
+	 * @return the download stream
+	 * @throws IOException the io exception
+	 */
+	public DownloadStream download() throws IOException {
+		Response resp = null;
+		try{
+			Request request = buildRequest();
+			if(udfHttpClient==null){
+				resp = client.newCall(request).execute();
+			}else{
+				resp = udfHttpClient.newCall(request).execute();
+			}
+			return new DownloadStream(resp);
+		}catch(Exception ex){
+			IOUtils.closeQuietly(resp);
+			throw new IOException(ex);
+		}
+	}
 
 	private Request buildRequest() {
 		Request.Builder reqBuilder = new Request.Builder();
