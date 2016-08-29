@@ -27,6 +27,14 @@ public class DownloadStream extends InputStream {
         return resp.body().contentType();
     }
 
+    public String getFileName(){
+        String disposition =resp.header("Content-Disposition");
+        if(disposition!=null){
+            return disposition.replaceAll(".*filename=\"(.+)\".*","$1");
+        }
+        return null;
+    }
+
     public long getContentLength(){
         return resp.body().contentLength();
     }
