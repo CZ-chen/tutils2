@@ -128,6 +128,14 @@ public class Requester {
 		multipartBodyBuilder.addFormDataPart(name, fileName,fileBody);
 		return this;
 	}
+
+	public Requester addPart(String name,String value){
+		if(multipartBodyBuilder==null){
+			multipartBodyBuilder = new MultipartBody.Builder().setType(MultipartBody.FORM);
+		}
+		multipartBodyBuilder.addFormDataPart(name,value);
+		return this;
+	}
     
     public Requester addUrlParm(String key,Object value){
     	if(key!=null && value!=null){
