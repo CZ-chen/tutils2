@@ -58,15 +58,9 @@ public class Requester {
     	result.setCode(-1);
 		Response resp = null;
     	try{
-			Request request = buildRequest();
-			logger.info(request.toString());
-			if(udfHttpClient==null){
-				resp = client.newCall(request).execute();
-			}else{
-				resp = udfHttpClient.newCall(request).execute();
-			}
-    		result.setCode(resp.code());
-    		result.setRespBody(resp.body().bytes());
+			resp = sendRequest();
+			result.setCode(resp.code());
+			result.setRespBody(resp.body().bytes());
 			result.setContentType(resp.header("Content-Type"));
     	}catch(Exception ex){
     		result.setError(ex);
@@ -75,6 +69,22 @@ public class Requester {
 		}
     	return result;
     }
+
+	public Response sendRequest() throws IOException {
+		Response resp = null;
+		try{
+			Request request = buildRequest();
+			logger.info(request.toString());
+			if(udfHttpClient==null){
+				resp = client.newCall(request).execute();
+			}else{
+				resp = udfHttpClient.newCall(request).execute();
+			}
+			return resp;
+		}catch(Exception ex){
+			throw new IOException(ex);
+		}
+	}
 
 	/**
 	 * 发起请求并返回下载流
@@ -85,12 +95,7 @@ public class Requester {
 	public DownloadStream download() throws IOException {
 		Response resp = null;
 		try{
-			Request request = buildRequest();
-			if(udfHttpClient==null){
-				resp = client.newCall(request).execute();
-			}else{
-				resp = udfHttpClient.newCall(request).execute();
-			}
+			resp = sendRequest();
 			return new DownloadStream(resp);
 		}catch(Exception ex){
 			IOUtils.closeQuietly(resp);
