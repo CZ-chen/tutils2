@@ -9,9 +9,9 @@ import java.util.Properties;
 public interface ConfigSource {
     /**
      * 取得配置
-     * @param configId
-     * @return
-     * @throws IOException
+     * @param configId - 配置ID
+     * @return - 配置id对应的配置信息
+     * @throws IOException - 当配置信息最终无法找到时抛出
      */
     Properties getConfig(String configId)throws IOException;
 }
